@@ -210,7 +210,7 @@ Se cargaron 10 registros en cada una de las ocho tablas principales:
 | Estado_Cita | 10 |
 | Motivo_Consulta | 10 |
 | Agenda | 10 |
-| Cita | 10 |
+| Cita | 11 |
 
 ---
 
@@ -264,7 +264,7 @@ En los datos de prueba se obtuvieron:
 | Especialidades | 10 |
 | Consultorios | 10 |
 | Agendas | 10 |
-| Citas | 10 |
+| Citas | 11 |
 | No-Show | 1 |
 
 ---
@@ -275,7 +275,7 @@ Las evidencias del funcionamiento de la base de datos incluyen:
 
 - Creación de las tablas.
 - Carga de datos.
-- Verificación de 80 registros.
+- Verificación de 81 registros.
 - Operaciones `UPDATE`.
 - Operación `DELETE`.
 - Consultas SQL.
