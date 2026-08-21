@@ -70,6 +70,114 @@ La solución está implementada mediante ocho tablas relacionadas:
 | `motivo_consulta` | Motivos y categorías de consulta |
 | `cita` | Registro de las solicitudes y citas médicas |
 
+## Esquema lógico / modelo relacional
+
+La base de datos está conformada por ocho relaciones:
+
+### ESPECIALIDAD
+**PK:** especialidad_id
+
+- especialidad_id
+- nombre
+- descripcion
+- estado
+
+### PACIENTE
+**PK:** paciente_id
+
+- paciente_id
+- tipo_documento
+- numero_documento **(UNIQUE)**
+- nombres
+- apellidos
+- fecha_nacimiento
+- sexo
+- telefono
+- correo
+- fecha_registro
+
+### MEDICO
+**PK:** medico_id  
+**FK:** especialidad_id → especialidad.especialidad_id
+
+- medico_id
+- tipo_documento
+- numero_documento
+- nombres
+- apellidos
+- registro_profesional
+- especialidad_id
+- telefono
+- correo
+- estado
+
+### CONSULTORIO
+**PK:** consultorio_id
+
+- consultorio_id
+- codigo
+- ubicacion
+- piso
+- capacidad
+- estado
+
+### ESTADO_CITA
+**PK:** estado_cita_id
+
+- estado_cita_id
+- nombre
+- descripcion
+- permite_atencion
+
+### MOTIVO_CONSULTA
+**PK:** motivo_id
+
+- motivo_id
+- nombre
+- descripcion
+- categoria
+
+### AGENDA
+**PK:** agenda_id  
+**FK:** medico_id → medico.medico_id  
+**FK:** consultorio_id → consultorio.consultorio_id
+
+- agenda_id
+- medico_id
+- consultorio_id
+- fecha
+- hora_inicio
+- hora_fin
+- estado
+- observacion
+
+### CITA
+**PK:** cita_id  
+**FK:** paciente_id → paciente.paciente_id  
+**FK:** agenda_id → agenda.agenda_id  
+**FK:** estado_cita_id → estado_cita.estado_cita_id  
+**FK:** motivo_id → motivo_consulta.motivo_id
+
+- cita_id
+- paciente_id
+- agenda_id
+- estado_cita_id
+- motivo_id
+- fecha_solicitud
+- hora_solicitud
+- fecha_confirmacion
+- observaciones
+
+### Relaciones
+
+- ESPECIALIDAD 1:N MEDICO
+- MEDICO 1:N AGENDA
+- CONSULTORIO 1:N AGENDA
+- PACIENTE 1:N CITA
+- AGENDA 1:N CITA
+- ESTADO_CITA 1:N CITA
+- MOTIVO_CONSULTA 1:N CITA
+
 ---
 
 ## Integridad de los datos
