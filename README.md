@@ -29,7 +29,7 @@ Diseñar e implementar una base de datos relacional que permita gestionar el cic
 El modelo conceptual identifica las entidades principales del sistema, sus atributos, relaciones y cardinalidades.
 
 ### Diagrama E/R
-![Modelo Entidad-Relación](02_Modelo_ER/"Modelo E-R Citas.png")
+![Modelo Entidad-Relación](02_Modelo_ER/Modelo_E-R_Citas.png)
 
 
 El modelo está compuesto por ocho entidades principales:
